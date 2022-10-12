@@ -17,3 +17,9 @@ CC: 1036633236
 Email: Salazar.jd@gmail.com
 Grupo Programación: 3-4
 Rol: Desarrollador 
+
+Nombre: Gonzalo Gabriel Gonzalez Cano
+CC: 79.574.290
+Email: gonzgonc@gmail.com
+Grupo Programación: 3-4
+Rol: Administrador BD
