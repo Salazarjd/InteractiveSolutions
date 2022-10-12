@@ -23,3 +23,10 @@ CC: 1.073.527.601
 Email: riveros.kristianr@gmail.com
 Grupo Programacion: 5-6
 Rol: Desarrollador - Analista
+Rol: Desarrollador 
+
+Nombre: Gonzalo Gabriel Gonzalez Cano
+CC: 79.574.290
+Email: gonzgonc@gmail.com
+Grupo Programación: 3-4
+Rol: Administrador BD
