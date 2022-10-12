@@ -12,3 +12,8 @@ Email: paulaandrea0316@yahoo.com.mx
 Grupo Programación: 3-4
 Rol: Scrum Master
 
+Nombre: Juan Diego Salazar Velásquez
+CC: 1036633236
+Email: Salazar.jd@gmail.com
+Grupo Programación: 3-4
+Rol: Desarrollador 
