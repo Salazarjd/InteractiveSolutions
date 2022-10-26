@@ -7,7 +7,7 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.productsPath = '/api/products';
+        this.productsPath = '/api';
 
         //Conectar a la base de datos
         this.conectarDB();
@@ -37,7 +37,7 @@ class Server{
 
     routes(){
 
-        this.app.use(this.productsPath, require('../routes/products'));
+        this.app.use(this.productsPath, require('../routes/games'));
     }
 
     listen(){
