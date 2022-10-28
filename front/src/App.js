@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Header/> */}
+        <Header/>
         <div className='container container-fluid'>
           <Routes>
             <Route path='/Home' element={<Home />} />
