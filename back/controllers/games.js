@@ -27,7 +27,7 @@ const getGame = async(req, res = response ) => {
             message: `Producto con id ${req.params.id} no existe`,
             error:true
         })
-    }
+    }   
 
     res.status(200).json({
         success: true,

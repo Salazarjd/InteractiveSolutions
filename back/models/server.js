@@ -1,6 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const dbConnection = require('../database/config');
+const errorMiddleware= require("../middleware/errors")
+const cookieParser= require("cookie-parser")
+
+
+//app.use(cookieParser()); donde lo ubico?
 
 class Server{
 
@@ -12,8 +17,11 @@ class Server{
         //Conectar a la base de datos
         this.conectarDB();
 
-        //middlewares
+        //middlewares para manejar errores
         this.middlewares();
+
+        //Ruta para usuarios
+        this.auth ();
 
         //rutas de la aplicación
         this.routes();
@@ -33,11 +41,22 @@ class Server{
 
         //Cors
         this.app.use(cors());
+
+        this.app.use (errorMiddleware)
+
+      
     }
+
+    auth(){
+
+        this.app.use (this.auth, require("../routes/auth"));
+
+        }
 
     routes(){
 
         this.app.use(this.productsPath, require('../routes/games'));
+       
     }
 
     listen(){
