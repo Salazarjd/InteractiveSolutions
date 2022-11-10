@@ -6,7 +6,7 @@ const router = Router();
 
 
 //Probemos autenticación
-router.get('/games', isAuthenticatedUser,getGames);
+router.get('/games',getGames);
 
 router.get('/game/:id', getGame);
 
