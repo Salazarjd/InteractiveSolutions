@@ -27,7 +27,7 @@ const getGame = async(req, res = response ) => {
             message: `Producto con id ${req.params.id} no existe`,
             error:true
         })
-    }
+    }   
 
     res.status(200).json({
         success: true,
@@ -37,7 +37,8 @@ const getGame = async(req, res = response ) => {
 }
 
 const postGame = async(req, res = response ) => {
-
+    req.body.user = req.user.id;
+    
     const game = new Game(req.body);
         
     await game.save();
