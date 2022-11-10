@@ -37,7 +37,8 @@ const getGame = async(req, res = response ) => {
 }
 
 const postGame = async(req, res = response ) => {
-
+    req.body.user = req.user.id;
+    
     const game = new Game(req.body);
         
     await game.save();
