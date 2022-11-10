@@ -50,19 +50,19 @@ export const Home = () => {
                                                         </a>
                                                     </div>
                                                     <div className="game-overlay">
-                                                        <a
+                                                        <Link
                                                             className="popup-youtube"
-                                                            href="localhost:3000"
+                                                            to={`/game/${game._id}`}
                                                         >
                                                             <i className="fa-solid fa-play"></i>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                                 <div className="games-desc">
                                                     <h3>
                                                         <Link to={`/games/${game._id}`}>{game.nombre}</Link>
                                                     </h3>
-                                                    <p className="game-meta">Action | PS - XBOX</p>
+                                                    <p className="game-meta">{game.categoria}</p>
                                                     <p className="game-meta">
                                                         Release date:<span>{game.fechaCreacion}</span>
                                                     </p>
@@ -78,29 +78,24 @@ export const Home = () => {
                                                     <div className="game-action">
                                                         <div className="game-price">
                                                             <h4>${game.precio}</h4>
-                                                            <p className="off">40% OFF</p>
+                                                            <p className="off">50% OFF</p>
                                                         </div>
 
                                                         <div className="game-buy">
-                                                            <a href="localhost:3000" className="fag-btn-outline">
+                                                            <Link to={""} className="fag-btn-outline">
                                                                 Comprar
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-
                                     ))}
                                 </div>
                                 <div className="preorder-box text-center">
-                                    <a href="games.html" className=" fag-btn-outline">
+                                    <Link to={"/games"} className=" fag-btn-outline">
                                         Ver Todos
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
