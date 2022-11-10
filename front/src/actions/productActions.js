@@ -29,7 +29,7 @@ export const getGames = () => async(dispatch)=>{
 }
 
 //VER DETALLE DEL PRODUCTO
-export const getProductDetails = (id) => async(dispatch)=>{
+export const getGameDetails = (id) => async(dispatch)=>{
     try {
         dispatch({type: PRODUCT_DETAILS_REQUEST})
 
@@ -37,7 +37,7 @@ export const getProductDetails = (id) => async(dispatch)=>{
 
         dispatch({
             type:PRODUCT_DETAILS_SUCCESS,
-            payload: data.product
+            payload: data.game
         })
     }catch (error){
         dispatch({

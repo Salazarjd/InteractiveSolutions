@@ -40,7 +40,7 @@ export const productsReducer = (state ={ games: []}, action)=>{
 }
 
 //REDUCER PARA TENER TODOS LOS DETALLES
-export const productDetailsReducer = (state = { product: {} }, action) => {
+export const gameDetailsReducer = (state = { game: {} }, action) => {
     switch (action.type) {
 
         case PRODUCT_DETAILS_REQUEST:
@@ -52,7 +52,7 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
         case PRODUCT_DETAILS_SUCCESS:
             return {
                 loading: false,
-                product: action.payload
+                game: action.payload
             }
 
         case PRODUCT_DETAILS_FAIL:
