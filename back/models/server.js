@@ -13,6 +13,7 @@ class Server{
         this.port = process.env.PORT;
         this.productsPath = '/api';
         this.auth = '/api';
+        this.orders = '/api';
 
         //Conectar a la base de datos
         this.conectarDB();
@@ -50,6 +51,7 @@ class Server{
 
         this.app.use(this.productsPath, require('../routes/games'));
         this.app.use (this.auth, require("../routes/auth"));
+        this.app.use (this.orders, require("../routes/order"));
        
     }
 
