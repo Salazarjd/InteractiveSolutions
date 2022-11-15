@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
-
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const {cartItems} = useSelector(state=>state.cart)
   return (
     <Fragment>
       <nav className="fag-header navbar navbar-expand-lg">
@@ -26,9 +28,9 @@ const Header = () => {
           >
             <ul className="header_menu  mr-auto">
               <li className="nav-item active">
-                <a href="index.html" className="nav-link">
+                <Link to="/home" className="nav-link">
                   Inicio
-                </a>
+                </Link>
               </li>
              
               <li className="nav-item dropdown">
@@ -62,13 +64,13 @@ const Header = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a href="product.html">Productos</a>
+                    <Link to="/games">Productos</Link>
                   </li>
                   <li>
                     <a href="product-single.html">Product Single</a>
                   </li>
                   <li>
-                    <a href="cart.html">Carrito</a>
+                    <Link to="/cart">Carrito</Link>
                   </li>
                   <li>
                     <a href="checkout.html">Checkout</a>
@@ -103,10 +105,10 @@ const Header = () => {
               </div>
 
               <div className="header-cart">
-                <a href="cart.html">
+                <Link to="/cart">
                   <i class="fa-solid fa-cart-shopping"></i>
-                  $120.000
-                </a>
+                  {cartItems.length}
+                </Link>
               </div>
 
               <div className="header-auth  nav-item dropdown">
@@ -125,7 +127,7 @@ const Header = () => {
                 </a>
                 <ul className="user_menu dropdown-menu">
                   <li>
-                    <a href="localhost:3000">Perfil</a>
+                    <Link to="/dashboard">Perfil</Link>
                   </li>
                   <li>
                     <a href="localhost:3000">Foros</a>

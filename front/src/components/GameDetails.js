@@ -5,6 +5,7 @@ import { getGameDetails, clearErrors } from "../actions/productActions";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
+import { addItemToCart } from '../actions/cartActions';
 
 export const GameDetails = () => {
   const { game, error } = useSelector((state) => state.gameDetails);
@@ -37,6 +38,10 @@ export const GameDetails = () => {
 
     const qty = contador.valueAsNumber - 1;
     setQuantity(qty);
+  };
+  const addToCart = () => {
+    dispatch(addItemToCart(id, quantity));
+    alert.success('Producto agregado al carro')
   };
 
   return (
@@ -125,8 +130,8 @@ export const GameDetails = () => {
                   </div>
                 </div>
                 <div className="single-shop-page-btn">
-                  <a href="#" className="fag-btn">
-                    <i className="fa-solid fa-cart-shopping"></i> Añadir al
+                  <a className="fag-btn" disabled={game.inventario === 0} onClick={addToCart}>
+                    <i className="fa-solid fa-cart-shopping" ></i> Añadir al
                     Carrito <span></span>
                   </a>
                   <ul>
