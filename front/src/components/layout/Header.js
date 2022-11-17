@@ -1,16 +1,28 @@
 import React, { Fragment } from "react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
 import { Link } from 'react-router-dom';
+import { logout } from "../../actions/userActions"
 
 const Header = () => {
-  const {cartItems} = useSelector(state=>state.cart)
+  const { cartItems } = useSelector(state => state.cart)
+
+  const alert = useAlert();
+  const dispatch = useDispatch();
+
+  const { user, loading } = useSelector(state => state.auth)
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    alert.success("LogOut exitoso")
+  }
   return (
     <Fragment>
       <nav className="fag-header navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="index.html">
-            <img src="../imagenes/logo_prueba.png" alt="site logo" id="logo"/>
-          </a>
+          <Link className="navbar-brand" to="/">
+            <img src="../imagenes/logo_prueba.png" alt="site logo" id="logo" />
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -32,8 +44,8 @@ const Header = () => {
                   Inicio
                 </Link>
               </li>
-             
-              <li className="nav-item dropdown">
+
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="localhost:3000"
@@ -51,7 +63,7 @@ const Header = () => {
                     <a href="news-single.html">News Single</a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -110,42 +122,40 @@ const Header = () => {
                   {cartItems.length}
                 </Link>
               </div>
-
-              <div className="header-auth  nav-item dropdown">
-                <a
-                  className="lang-btn nav-link dropdown-toggle"
-                  href="localhost:3000"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="../imagenes/admin.jpg"
-                    alt="admin"
-                  />
-                  Cristhian Riveros
-                </a>
-                <ul className="user_menu dropdown-menu">
-                  <li>
-                    <Link to="/dashboard">Perfil</Link>
-                  </li>
-                  <li>
-                    <a href="localhost:3000">Foros</a>
-                  </li>
-                  <li>
-                    <a href="localhost:3000">Mensages</a>
-                  </li>
-                  <li>
-                    <a href="localhost:3000">Retos</a>
-                  </li>
-                  <li>
-                    <a href="localhost:3000">Opciones</a>
-                  </li>
-                  <li>
-                    <a href="localhost:3000">Cerrar Sesion</a>
-                  </li>
-                </ul>
-              </div>
+              {user ? (
+                <div className="header-auth  nav-item dropdown">
+                  <Link
+                    className="lang-btn nav-link dropdown-toggle"
+                    to="/"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <figure className="avatar avatar-nav">
+                      <img
+                        src={user.avatar && user.avatar.url}
+                        alt={user && user.nombre}
+                        className='rounded-circle'></img>
+                    </figure>
+                    <span>{user && user.nombre}</span>
+                  </Link>
+                  <ul className="user_menu dropdown-menu">
+                    <li>
+                      {user && user.role === 'admin' && (
+                        <Link className="dropdown-item" to="/dashboard">Adm. Productos</Link>)}
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/">Pedidos</Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/yo">Mi Cuenta</Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar sesion</Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : !loading && <Link to='/login' className='btn ml-4' id='login_btn'>login</Link>}
             </div>
           </div>
         </div>

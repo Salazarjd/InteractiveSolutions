@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
     return (
@@ -10,16 +11,16 @@ export const Footer = () => {
                     <div class="col-12">
                         <div class="footer-bottom-inn">
                             <div class="footer-logo">
-                                <a href="index.html">
+                                <Link href="index.html">
                                     <img src="../imagenes/logo_prueba.png" alt="site logo"/>
-                                </a>
+                                </Link>
                             </div>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><span class="fa-brands fa-facebook"></span></a></li>
-                                    <li><a href="#"><span class="fa-brands fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fa-brands fa-youtube"></span></a></li>
-                                    <li><a href="#"><span class="fa-brands fa-instagram"></span></a></li>
+                                    <li><Link href="#"><span class="fa-brands fa-facebook"></span></Link></li>
+                                    <li><Link href="#"><span class="fa-brands fa-twitter"></span></Link></li>
+                                    <li><Link href="#"><span class="fa-brands fa-youtube"></span></Link></li>
+                                    <li><Link href="#"><span class="fa-brands fa-instagram"></span></Link></li>
                                 </ul>
                             </div>
                             <div class="copyright">

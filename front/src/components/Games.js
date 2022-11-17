@@ -73,7 +73,7 @@ export const Games = () => {
                                                 <p className="off">50% OFF</p>
                                             </div>
                                             <div className="game-buy">
-                                                <a href="#" className="fag-btn-outline">Comprar!</a>
+                                                <Link to="#" className="fag-btn-outline">Comprar!</Link>
                                             </div>
                                         </div>
                                     </div>
