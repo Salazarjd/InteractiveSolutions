@@ -10,10 +10,9 @@ import { Footer } from './components/layout/Footer';
 import GameDetails from './components/GameDetails';
 import Cart from './components/Cart';
 import Dashboard, { MenuAdm } from './components/admin/Dashboard';
-import Login from './components/Login'
-import Register from './components/Register'
 import ProductList from './components/admin/ProductList';
 import NewGame from './components/admin/NewGame';
+import { Login } from './components/user/Login';
 
 
 function App() {
@@ -32,8 +31,7 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/productList' element={<ProductList />} />
             <Route path='/nuevoJuego' element={<NewGame />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path="/login" element={<Login />}/>
           </Routes>
         </div>
         <Footer/>
