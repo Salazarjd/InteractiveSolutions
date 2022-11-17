@@ -2,7 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const dbConnection = require('../database/config');
 const errorMiddleware= require("../middleware/errors")
-const cookieParser= require("cookie-parser")
+const cookieParser = require("cookie-parser")
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 
 
@@ -36,7 +38,9 @@ class Server{
 
         //Lectura y parseo del body
         this.app.use(express.json());
+        this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(cookieParser());
+        this.app.use(fileUpload());
 
         //Cors
         this.app.use(cors());

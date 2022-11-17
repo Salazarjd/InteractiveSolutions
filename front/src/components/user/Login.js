@@ -43,6 +43,7 @@ export const Login = () => {
                                             <form onSubmit={submitHandler}>
                                                 <div class="form-row">
                                                     <input type='email'
+                                                        placeholder='Ingresa tu correo'
                                                         id='email_field'
                                                         className='form-control'
                                                         value={email}
@@ -50,6 +51,7 @@ export const Login = () => {
                                                 </div>
                                                 <div class="form-row">
                                                     <input type='password'
+                                                        placeholder='Ingresa tu contraseña'
                                                         id='password_field'
                                                         className='form-control'
                                                         value={password}
@@ -61,7 +63,7 @@ export const Login = () => {
                                                 </div>
                                             </form>
                                             <div class="socials-wrapper">
-                                                <p>No tienes cuenta? - Registrarse</p>
+                                                <Link to='/register'><p>No tienes cuenta? - Registrarse</p></Link>
                                                 <ul>
                                                     <li><Link to="#" class="facebook"><i class="fab fa-facebook-f"></i></Link></li>
                                                     <li><Link to="#" class="twitter"><i class="fab fa-twitter"></i></Link></li>
