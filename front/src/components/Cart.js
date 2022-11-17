@@ -103,7 +103,7 @@ export const Cart = () => {
                                           <p>${(item.precio) * (item.quantity)}</p>
                                        </td>
                                        <td class="fag-cart-close">
-                                          <a><i class="fa-solid fa-xmark" onClick={() => removeCartItemHandler(item.product)} style={{color: 'white'}}></i></a>
+                                          <Link><i class="fa-solid fa-xmark" onClick={() => removeCartItemHandler(item.product)} style={{color: 'white'}}></i></Link>
                                        </td>
                                     </tr>
                                  ))}
@@ -111,8 +111,8 @@ export const Cart = () => {
                            </table>
                         </div>
                         <div class="cart-clear">
-                           <a href="#">Limpiar Carrito</a>
-                           <a href="#">Actualizar</a>
+                           <Link to="#">Limpiar Carrito</Link>
+                           <Link to="#">Actualizar</Link>
                         </div>
                      </div>
                   </div>
@@ -139,7 +139,7 @@ export const Cart = () => {
                         </div>
                      </div>
                      <div class="checkout-action">
-                        <a href="#" class="fag-btn">Proceder con el Pago :) <span></span></a>
+                        <Link to="#" class="fag-btn">Proceder con el Pago :) <span></span></Link>
                      </div>
                   </div>
                </div>

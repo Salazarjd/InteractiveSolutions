@@ -130,30 +130,30 @@ export const GameDetails = () => {
                   </div>
                 </div>
                 <div className="single-shop-page-btn">
-                  <a className="fag-btn" disabled={game.inventario === 0} onClick={addToCart}>
+                  <Link className="fag-btn" disabled={game.inventario === 0} onClick={addToCart}>
                     <i className="fa-solid fa-cart-shopping" ></i> Añadir al
                     Carrito <span></span>
-                  </a>
+                  </Link>
                   <ul>
                     <li>
-                      <a href="#">
+                      <Link to="#">
                         <i className="fab fa-facebook-f"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
+                      <Link to="#">
                         <i className="fab fa-twitter"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
+                      <Link to="#">
                         <i className="fab fa-instagram"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#">
+                      <Link to="#">
                         <i className="fab fa-pinterest"></i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

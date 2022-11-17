@@ -63,10 +63,10 @@ export const Login = () => {
                                             <div class="socials-wrapper">
                                                 <p>No tienes cuenta? - Registrarse</p>
                                                 <ul>
-                                                    <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#" class="twitch"><i class="fab fa-twitch"></i></a></li>
-                                                    <li><a href="#" class="youtube"><i class="fab fa-youtube"></i></a></li>
+                                                    <li><Link to="#" class="facebook"><i class="fab fa-facebook-f"></i></Link></li>
+                                                    <li><Link to="#" class="twitter"><i class="fab fa-twitter"></i></Link></li>
+                                                    <li><Link to="#" class="twitch"><i class="fab fa-twitch"></i></Link></li>
+                                                    <li><Link to="#" class="youtube"><i class="fab fa-youtube"></i></Link></li>
                                                 </ul>
                                             </div>
                                         </div>
