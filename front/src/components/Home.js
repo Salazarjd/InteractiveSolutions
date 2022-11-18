@@ -81,11 +81,11 @@ export const Home = () => {
                                                             <p className="off">50% OFF</p>
                                                         </div>
 
-                                                        <div className="game-buy">
+                                                        {/* <div className="game-buy">
                                                             <Link to={""} className="fag-btn-outline">
                                                                 Comprar
                                                             </Link>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                 </div>
                                             </div>
