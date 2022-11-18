@@ -6,11 +6,11 @@ import Sidebar from './Sidebar'
 import Titulo from './Titulo'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGames } from '../../actions/productActions'
+import { getAdmingames } from '../../actions/productActions'
 import {Link } from "react-router-dom"
 
 export const ProductList = () => {
-    const { games, error } = useSelector(state => state.games)
+    const { error , games } = useSelector(state => state.games)
     const alert = useAlert();
 
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const ProductList = () => {
             return alert.error(error)
         }
 
-        dispatch(getGames());
+        dispatch(getAdmingames());
     }, [dispatch])
 
     const setProducts = () => {

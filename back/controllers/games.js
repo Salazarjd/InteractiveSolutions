@@ -1,5 +1,7 @@
 const { response } = require('express');
 const Game = require('../models/games');
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+
 
 const getGames = async(req, res = response ) => {
 
@@ -89,10 +91,24 @@ const deleteGame = async(req, res = response ) => {
     });
 }
 
+//Ver la lista de productos (Admin)
+
+ const getAdmingames = catchAsyncErrors(async (req, res, next) => {
+
+    const game = await Game.find()
+
+    res.status(200).json({
+        game
+    })
+
+})
+
+
 module.exports = {
     getGames,
     getGame,
     postGame,
     putGame,
-    deleteGame
+    deleteGame,
+    getAdmingames
 }
