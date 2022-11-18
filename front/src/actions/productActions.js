@@ -10,7 +10,16 @@ import {
     CLEAR_ERRORS,
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
-    ADMIN_PRODUCTS_FAIL
+    ADMIN_PRODUCTS_FAIL,
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL,
+    DELETE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT_FAIL,
+    DELETE_PRODUCT_REQUEST,
+    UPDATE_PRODUCT_REQUEST,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_FAIL,
 } from '../constants/productConstants';
 
 export const getGames = () => async(dispatch)=>{
@@ -51,6 +60,32 @@ export const getAdmingames = () => async (dispatch) => {
     }
 }
 
+//NUEVO PRODUCTO -ADMIN
+export const newgame = ( productData ) => async (dispatch)=>{
+    try {
+        dispatch({type: NEW_PRODUCT_REQUEST})
+
+        const config ={ 
+            header: { 
+                'Content-Type':'application/json'
+            }
+        }
+
+        const {data} = await axios.post('/api/game/new', productData, config)
+
+        dispatch({
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data
+        })
+    }catch(error){
+        dispatch({
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+
 //VER DETALLE DEL PRODUCTO
 export const getGameDetails = (id) => async(dispatch)=>{
     try {
@@ -65,6 +100,49 @@ export const getGameDetails = (id) => async(dispatch)=>{
     }catch (error){
         dispatch({
             type:PRODUCT_DETAILS_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+//Eliminar un juego (admin)
+export const deleteGame = (id) => async(dispatch)=>{
+    try{
+        dispatch ({type: DELETE_PRODUCT_REQUEST})
+        const {data} = await axios.delete(`/api/game/${id}`)
+
+        dispatch({
+            type: DELETE_PRODUCT_SUCCESS,
+            payload: data.success
+        })
+    } catch(error){
+        dispatch({
+            type: DELETE_PRODUCT_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+//update game (admin)
+export const updategame = (id, productData) => async (dispatch) =>{
+    try{
+        dispatch ({type: UPDATE_PRODUCT_REQUEST})
+
+        const config={
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        const {data} = await axios.put(`/api/game/${id}`, productData, config)
+
+        dispatch({
+            type: UPDATE_PRODUCT_SUCCESS,
+            payload: data.success
+        })
+        
+    } catch(error){
+        dispatch({
+            type: UPDATE_PRODUCT_FAIL,
             payload: error.response.data.message
         })
     }

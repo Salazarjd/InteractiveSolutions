@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Header from './components/layout/Header';
 import { Home } from './components/Home';
 import { Games } from './components/Games';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 // import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -14,11 +15,15 @@ import ProductList from './components/admin/ProductList';
 import NewGame from './components/admin/NewGame';
 import { Login } from './components/user/Login';
 import { Register } from './components/user/Register';
+<<<<<<< HEAD
 import { Profile } from './components/user/Profile';
 import { UpdateProfile } from './components/user/UpdateProfile';
 import { UpdatePassword } from './components/user/UpdatePassword';
 import store from './store';
 import { loadUser } from './actions/userActions';
+=======
+import { UpdateProduct } from './components/admin/UpdateProduct';
+>>>>>>> paula
 
 
 function App() {
@@ -44,9 +49,19 @@ function App() {
           <Route path='/nuevoJuego' element={<NewGame />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+<<<<<<< HEAD
           <Route path="/yo" element={<Profile />} />
           <Route path="/yo/update" element={<UpdateProfile />} />
           <Route path="/password/update" element={<UpdatePassword />} />
+=======
+
+
+           {/*Ruta protegida*/}
+
+           <Route path="/updateGame/:id"
+            element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
+>>>>>>> paula
         </Routes>
       </div>
       <Footer />

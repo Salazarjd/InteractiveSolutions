@@ -6,14 +6,26 @@ import Sidebar from './Sidebar'
 import Titulo from './Titulo'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAdmingames } from '../../actions/productActions'
+import { getAdmingames, deleteGame } from '../../actions/productActions'
 import {Link } from "react-router-dom"
 
 export const ProductList = () => {
-    const { error , games } = useSelector(state => state.games)
     const alert = useAlert();
-
     const dispatch = useDispatch();
+
+    const { error , games } = useSelector(state => state.games)
+
+    const deleteProductHandler= (id)=> {
+        const response=window.confirm("Esta seguro de querer borrar este producto?")
+        if (response){
+            dispatch(deleteGame(id))
+            alert.success("Producto eliminado correctamente")
+            window.location.reload(false)
+        }
+    }
+
+      
+
     useEffect(() => {
         if (error) {
             return alert.error(error)
@@ -62,15 +74,13 @@ export const ProductList = () => {
                 actions: <Fragment>
                     <Link to={`/game/${product._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa-solid fa-eye"></i>
-                    </Link><Link to="/" className="btn btn-warning py-1 px-2">
+                        </Link><Link to={`/updateGame/${product._id}`} className="btn btn-warning py-1 px-2">
                     <i class="fa-solid fa-pencil"></i>
                     </Link>
 
-                    <Link to="/" className="btn btn-danger py-1 px-2">
-                        <i className="fa-solid fa-trash"></i>
-                    </Link>
-                    
-
+                    <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteProductHandler(product._id)}>
+                        <i className="fa fa-trash"></i>
+                    </button>                  
                 </Fragment>
             })
         })
