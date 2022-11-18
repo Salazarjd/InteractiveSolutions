@@ -45,55 +45,6 @@ const Header = () => {
                 </Link>
               </li>
 
-              {/* <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="localhost:3000"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Novedades
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a href="news.html">Novedades</a>
-                  </li>
-                  <li>
-                    <a href="news-single.html">News Single</a>
-                  </li>
-                </ul>
-              </li> */}
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="localhost:3000"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Tienda
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/games">Productos</Link>
-                  </li>
-                  <li>
-                    <a href="product-single.html">Product Single</a>
-                  </li>
-                  <li>
-                    <Link to="/cart">Carrito</Link>
-                  </li>
-                  <li>
-                    <a href="checkout.html">Checkout</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a href="contact.html" className="nav-link">
-                  Contactanos
-                </a>
-              </li>
             </ul>
             <div className="header-right  my-2 my-lg-0">
               <div className="header-search">
