@@ -56,7 +56,7 @@ const postGame = async(req, res = response ) => {
 
     for (let i=0; i<imagen.length;i++){
         const result = await cloudinary.v2.uploader.upload(imagen[i],{
-            folder:"products"
+            folder:"games"
         })
         imagenLink.push({
             public_id:result.public_id,
