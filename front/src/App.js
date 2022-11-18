@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/layout/Header';
 import { Home } from './components/Home';
 import { Games } from './components/Games';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 // import { ProductDetails } from './components/products/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -14,6 +15,7 @@ import ProductList from './components/admin/ProductList';
 import NewGame from './components/admin/NewGame';
 import { Login } from './components/user/Login';
 import { Register } from './components/user/Register';
+import { UpdateProduct } from './components/admin/UpdateProduct';
 
 
 function App() {
@@ -34,6 +36,13 @@ function App() {
           <Route path='/nuevoJuego' element={<NewGame />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+
+           {/*Ruta protegida*/}
+
+           <Route path="/updateGame/:id"
+            element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
         </Routes>
       </div>
       <Footer />

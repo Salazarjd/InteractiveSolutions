@@ -76,21 +76,46 @@ const postGame = async(req, res = response ) => {
     })
 }
 
+//UPDATE JUEGO
 const putGame = async(req, res = response ) => {
 
     let game = await Game.findById(req.params.id);
+   
     if (!game) {
-        return res.status(404).json({
-            success: false,
-            message: `Producto con id ${req.params.id} no existe`
-        });
+        return  next(new ErrorHandler("Producto no encontrado", 404))
+    }
+    let imagen=[]
+
+    if (typeof req.body.imagen=="string"){
+        imagen.push(req.body.imagen)
+    }else{
+        imagen=req.body.imagen
+    }
+    if (imagen!== undefined){
+        //eliminar imagenes asociadas con el product
+        for (let i=0; i<product.imagen.lenght; i++){
+            const result= await cloudinary.v2.uploader.destroy(product.images[i].public_id)
+        }
+
+        let imageLinks=[]
+        for (let i=0; i<imagen.lenght; i++){
+            const result=await cloudinary.v2.uploader.upload(imagen[i],{
+                folder:"products"
+            });
+            imageLinks.push({
+                public_id:result.public_id,
+                url: result.secure_url
+            })
+        }
+        req.body.imagen=imageLinks
     }
 
+    //Si el juego si existia, entonces si ejecuto la actualización
     game = await Game.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         runValidators: true
     });
-    
+    //Respondo Ok si el juego si se actualizó
     res.status(200).json({
         success: true,
         message: 'Producto actualizado correctamente',
@@ -98,6 +123,7 @@ const putGame = async(req, res = response ) => {
     });
 }
 
+//BORRAR JUEGO
 const deleteGame = async(req, res = response ) => {
 
     const game = await Game.findById(req.params.id);
