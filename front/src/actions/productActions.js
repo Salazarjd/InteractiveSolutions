@@ -10,7 +10,10 @@ import {
     CLEAR_ERRORS,
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
-    ADMIN_PRODUCTS_FAIL
+    ADMIN_PRODUCTS_FAIL,
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL,
 } from '../constants/productConstants';
 
 export const getGames = () => async(dispatch)=>{
@@ -50,6 +53,32 @@ export const getAdmingames = () => async (dispatch) => {
         })
     }
 }
+
+//NUEVO PRODUCTO -ADMIN
+export const newgame = ( productData ) => async (dispatch)=>{
+    try {
+        dispatch({type: NEW_PRODUCT_REQUEST})
+
+        const config ={ 
+            header: { 
+                'Content-Type':'application/json'
+            }
+        }
+
+        const {data} = await axios.post('/api/game/new', productData, config)
+
+        dispatch({
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data
+        })
+    }catch(error){
+        dispatch({
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
 
 //VER DETALLE DEL PRODUCTO
 export const getGameDetails = (id) => async(dispatch)=>{
