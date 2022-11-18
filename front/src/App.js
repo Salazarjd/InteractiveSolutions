@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/layout/Header';
 import { Home } from './components/Home';
 import { Games } from './components/Games';
@@ -14,9 +14,19 @@ import ProductList from './components/admin/ProductList';
 import NewGame from './components/admin/NewGame';
 import { Login } from './components/user/Login';
 import { Register } from './components/user/Register';
+import { Profile } from './components/user/Profile';
+import { UpdateProfile } from './components/user/UpdateProfile';
+import { UpdatePassword } from './components/user/UpdatePassword';
+import store from './store';
+import { loadUser } from './actions/userActions';
 
 
 function App() {
+
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, [])
+
   return (
     <Router>
       <div className="App">
@@ -34,6 +44,9 @@ function App() {
           <Route path='/nuevoJuego' element={<NewGame />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/yo" element={<Profile />} />
+          <Route path="/yo/update" element={<UpdateProfile />} />
+          <Route path="/password/update" element={<UpdatePassword />} />
         </Routes>
       </div>
       <Footer />
