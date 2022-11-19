@@ -9,7 +9,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/layout/Footer';
 import GameDetails from './components/GameDetails';
-import Cart from './components/Cart';
+import Cart from './components/cart/Cart';
 import Dashboard, { MenuAdm } from './components/admin/Dashboard';
 import ProductList from './components/admin/ProductList';
 import NewGame from './components/admin/NewGame';
@@ -21,6 +21,10 @@ import { UpdatePassword } from './components/user/UpdatePassword';
 import store from './store';
 import { loadUser } from './actions/userActions';
 import { UpdateProduct } from './components/admin/UpdateProduct';
+import Shipping from './components/cart/Shipping';
+import { ConfirmOrder } from './components/cart/ConfirmOrder';
+import { Payment } from './components/cart/Payment';
+import { Success } from './components/cart/Success';
 
 
 function App() {
@@ -51,10 +55,19 @@ function App() {
           <Route path="/password/update" element={<UpdatePassword />} />
 
 
-           {/*Ruta protegida*/}
+          {/*Ruta protegida*/}
 
-           <Route path="/updateGame/:id"
+          <Route path="/updateGame/:id"
             element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+          <Route path='/shipping'
+            element={<ProtectedRoute><Shipping /></ProtectedRoute>} />
+          <Route path='/order/confirm'
+            element={<ProtectedRoute><ConfirmOrder /></ProtectedRoute>} />
+          <Route path='/payment'
+            element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+          <Route path='/success'
+            element={<ProtectedRoute><Success /></ProtectedRoute>} />
+
 
         </Routes>
       </div>

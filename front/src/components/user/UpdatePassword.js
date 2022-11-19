@@ -71,7 +71,7 @@ const submitHandler= (e)=>{
                             />
                         </div>
 
-                        <button type="submit" className="btn btn-primary btn-block mt-3" 
+                        <button type="submit" className="fag-btn" 
                         disabled={loading ? true : false} >Actualizar Contraseña</button>
                     </form>
                 </div>
