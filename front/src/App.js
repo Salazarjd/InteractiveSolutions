@@ -32,11 +32,11 @@ import { useSelector } from 'react-redux';
 
 function App() {
 
-  useEffect(() => {
-    store.dispatch(loadUser())
-  }, [])
+  // useEffect(() => {
+  //   store.dispatch(loadUser())
+  // }, [])
 
-  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
+  // const { user, isAuthenticated, loading } = useSelector(state => state.auth)
 
   return (
     <Router>
@@ -80,10 +80,10 @@ function App() {
 
         </Routes>
       </div>
-      {!loading && (!isAuthenticated || user.role !== "admin") && (
+      {/* {!loading && (!isAuthenticated || user.role !== "admin") && (
         <Footer />
-      )}
-      {/* <Footer/> */}
+      )} */}
+      <Footer/>
       </div>
     </Router>
   );
