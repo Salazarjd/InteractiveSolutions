@@ -42,7 +42,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        {/* <div className='container container-fluid'> */}
+        <div className='container container-fluid'>
         <Routes>
           <Route path='/Home' element={<Home />} />
           <Route path='/' element={<Home />} />
@@ -83,7 +83,8 @@ function App() {
       {!loading && (!isAuthenticated || user.role !== "admin") && (
         <Footer />
       )}
-      {/* </div> */}
+      {/* <Footer/> */}
+      </div>
     </Router>
   );
 }
