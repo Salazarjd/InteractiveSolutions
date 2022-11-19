@@ -127,7 +127,7 @@ export const UpdateProfile = () => {
                             </div>
                         </div>
 
-                        <button type="submit" className="btn btn-primary btn-block mt-3"
+                        <button type="submit" className="fag-btn"
                             disabled={loading ? true : false} >Actualizar Perfil</button>
                     </form>
                 </div>

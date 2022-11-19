@@ -19,7 +19,7 @@ export const Profile = () => {
                             <figure className='avatar avatar-profile'>
                                 <img className="rounded-circle img-fluid" src={user.avatar.url} alt={user.nombre} />
                             </figure>
-                            <Link to="/yo/update" id="edit_profile" className="btn btn-primary btn-block my-5">
+                            <Link to="/yo/update" id="edit_profile" className="fag-btn">
                                 Editar Perfil
                             </Link>
                         </div>
@@ -40,7 +40,7 @@ export const Profile = () => {
                                 </Link>
                             )}
 
-                            <Link to="/password/update" className="btn btn-primary btn-block mt-3">
+                            <Link to="/password/update" className="fag-btn">
                                 Cambiar contraseña
                             </Link>
                         </div>

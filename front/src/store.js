@@ -4,6 +4,7 @@ import { composeWithDevTools} from 'redux-devtools-extension';
 import { productsReducer, gameDetailsReducer, newProductReducer, productReducer } from './reducer/productReducer';
 import { cartReducer } from './reducer/cartReducer';
 import { authReducer, forgotPasswordReducer, userReducer } from './reducer/userReducer';
+import { myOrdersReducer, newOrderReducer, orderDetailsReducer } from './reducer/orderReducer';
 
 const reducer= combineReducers ({
     games:productsReducer,
@@ -14,15 +15,19 @@ const reducer= combineReducers ({
     forgotPassword: forgotPasswordReducer,
     newgame: newProductReducer,
     game: productReducer,
+    newOrder: newOrderReducer,
+    myOrders: myOrdersReducer,
+    orderDetails: orderDetailsReducer
 })
 
 let initialState = {
     cart: {
-        cartItems: localStorage.getItem('cartItems')
-            ? JSON.parse(localStorage.getItem('cartItems'))
-            : []
+        cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+        shippingInfo: localStorage.getItem('shippingInfo')
+            ? JSON.parse(localStorage.getItem('shippingInfo'))
+            : {}
     }
-}
+};
 
 const middleware= [thunk]
 const store = createStore (reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
