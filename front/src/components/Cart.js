@@ -1,12 +1,16 @@
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MetaData from './layout/MetaData'
-import { Link } from 'react-router-dom'
 import { addItemToCart, removeItemFromCart } from '../actions/cartActions'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 export const Cart = () => {
+
+   const navigate=useNavigate()
    const dispatch = useDispatch();
    const { cartItems } = useSelector(state => state.cart)
+   const {user} =useSelector(state => state.auth)
 
    const increaseQty = (id, quantity, inventario) => {
       const newQty = quantity + 1;
@@ -19,6 +23,15 @@ export const Cart = () => {
       if (newQty <= 0) return;
       dispatch(addItemToCart(id, newQty))
    }
+
+   const checkOutHandler = () =>{
+      if (user){
+          navigate("/shipping")
+      }
+      else{
+          navigate("/login")
+      }
+ }
 
    const removeCartItemHandler = (id) => {
       dispatch(removeItemFromCart(id))
@@ -139,7 +152,7 @@ export const Cart = () => {
                         </div>
                      </div>
                      <div class="checkout-action">
-                        <Link to="#" class="fag-btn">Proceder con el Pago :) <span></span></Link>
+                     <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkOutHandler}>PROCEDER CON EL PAGO!</button>
                      </div>
                   </div>
                </div>

@@ -21,6 +21,7 @@ import { UpdatePassword } from './components/user/UpdatePassword';
 import store from './store';
 import { loadUser } from './actions/userActions';
 import { UpdateProduct } from './components/admin/UpdateProduct';
+import { Shipping } from './components/cart/Shipping';
 
 
 function App() {
@@ -51,10 +52,17 @@ function App() {
           <Route path="/password/update" element={<UpdatePassword />} />
 
 
-           {/*Ruta protegida*/}
+          {/*Ruta protegida*/}
 
-           <Route path="/updateGame/:id"
+          <Route path="/updateGame/:id"
             element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
+
+
+          {/*Rutas no protegidas*/}
+          <Route path="/shipping"
+          element={<ProtectedRoute><Shipping /></ProtectedRoute>} />
+
 
         </Routes>
       </div>
