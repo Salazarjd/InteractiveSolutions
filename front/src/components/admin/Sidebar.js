@@ -24,17 +24,17 @@ export const Sidebar = () => {
                         </ul>
                     </li>
 
-                    <li className='cart_box'>
+                    {/* <li className='cart_box'>
                         <Link to="/admin/orders"><i className="fa-solid fa-basket-shopping-simple"></i> Pedidos</Link>
-                    </li>
+                    </li> */}
 
-                    <li className='cart_box'>
+                    {/* <li className='cart_box'>
                         <Link to="/admin/users"><i className="fa-regular fa-users"></i> Usuarios</Link>
                     </li>
 
                     <li className='cart_box'>
                         <Link to="/admin/reviews"><i className="fa-solid fa-star-sharp"></i> Opiniones</Link>
-                    </li>
+                    </li> */}
 
                 </ul>
             </nav>
