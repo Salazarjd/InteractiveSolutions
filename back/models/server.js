@@ -5,6 +5,8 @@ const errorMiddleware= require("../middleware/errors")
 const cookieParser = require("cookie-parser")
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const path = require("path")
+require('dotenv').config();
 
 
 
@@ -34,7 +36,12 @@ class Server{
     middlewares(){
 
         //Directorio publico
-        this.app.use(express.static('public'));
+        // this.app.use(express.static('public'));
+        this.app.use(express.static(path.join(__dirname,'../../front/build')));
+
+        this.app.get("*", (req, res)=>{
+            res.sendFile(path.resolve(__dirname,'../../front/build/index.html'))
+        })
 
         //Lectura y parseo del body
         this.app.use(express.json());
