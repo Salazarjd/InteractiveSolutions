@@ -68,52 +68,55 @@ export const Payment = () => {
     return (
         <Fragment>
             <MetaData title={'Pago'} />
+            <div className="container">
+                <CheckoutSteps shipping confirmOrder payment />
 
-            <CheckoutSteps shipping confirmOrder payment />
+                <div className="row wrapper">
+                    <div className="col-10 col-lg-5">
+                        <form className="shadow-lg" onSubmit={submitHandler} >
+                            <h1 className="mb-4">Datos de tarjeta</h1>
+                            <div className="form-group">
+                                <label htmlFor="card_num_field">Datos de la tarjeta</label>
+                                <input
+                                    type="number"
+                                    id="card_num_field"
+                                    className="form-control"
+                                />
+                            </div>
 
-            <div className="row wrapper">
-                <div className="col-10 col-lg-5">
-                    <form className="shadow-lg" onSubmit={submitHandler} >
-                        <h1 className="mb-4">Datos de tarjeta</h1>
-                        <div className="form-group">
-                            <label htmlFor="card_num_field">Datos de la tarjeta</label>
-                            <input
-                                type="number"
-                                id="card_num_field"
-                                className="form-control"
-                            />
-                        </div>
+                            <div className="form-group">
+                                <label htmlFor="card_exp_field">Fecha de vencimiento</label>
+                                <input
+                                    type="text"
+                                    id="card_exp_field"
+                                    className="form-control"
+                                />
+                            </div>
 
-                        <div className="form-group">
-                            <label htmlFor="card_exp_field">Fecha de vencimiento</label>
-                            <input
-                                type="text"
-                                id="card_exp_field"
-                                className="form-control"
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="card_cvc_field">CVC</label>
-                            <input
-                                type="number"
-                                id="card_cvc_field"
-                                className="form-control"
-                            />
-                        </div>
+                            <div className="form-group">
+                                <label htmlFor="card_cvc_field">CVC</label>
+                                <input
+                                    type="number"
+                                    id="card_cvc_field"
+                                    className="form-control"
+                                />
+                            </div>
 
 
-                        <button
-                            id="pay_btn"
-                            type="submit"
-                            className="fag-btn"
-                        >
-                            Pagar ${` - ${orderInfo && orderInfo.precioTotal}`}
-                        </button>
+                            <button
+                                id="pay_btn"
+                                type="submit"
+                                className="fag-btn"
+                            >
+                                Pagar ${` - ${orderInfo && orderInfo.precioTotal}`}
+                            </button>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
+
+
 
         </Fragment>
 

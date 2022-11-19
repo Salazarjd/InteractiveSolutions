@@ -37,18 +37,18 @@ export const Cart = () => {
    return (
       <Fragment>
          <MetaData title="Carrito de Compra"></MetaData>
-         <section class="fag-breadcrumb-area" style={{
+         <section className="fag-breadcrumb-area" style={{
             backgroundImage: `url(/cartBg.jpg)`
          }}>
-            <div class="container">
-               <div class="row">
-                  <div class="col-12">
-                     <div class="breadcromb-box">
+            <div classNameName="container">
+               <div className="row">
+                  <div className="col-12">
+                     <div className="breadcromb-box">
                         <h3 >Carrito de Compra</h3>
                         <ul>
-                           <li><i class="fa-solid fa-house"></i></li>
+                           <li><i className="fa-solid fa-house"></i></li>
                            <li><Link to="/home">Inicio</Link></li>
-                           <li><i class="fa-solid fa-angle-right"></i></li>
+                           <li><i className="fa-solid fa-angle-right"></i></li>
                            <li>Carrito de Compra</li>
                         </ul>
                      </div>
@@ -57,15 +57,15 @@ export const Cart = () => {
             </div>
          </section>
 
-         <section class="fag-cart-page-area section_100">
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-8">
-                     <div class="cart-table-left">
+         <section className="fag-cart-page-area section_100">
+            <div className="container">
+               <div className="row">
+                  <div className="col-lg-8">
+                     <div className="cart-table-left">
                         <h3 style={{ color: '#ff7a21' }}>Carrito de Compra</h3>
                         <h4>Total items: {cartItems.length}</h4>
-                        <div class="table-responsive cart_box">
-                           <table class="table">
+                        <div className="table-responsive cart_box">
+                           <table className="table">
                               <thead>
                                  <tr>
                                     <th>Juego</th>
@@ -78,59 +78,59 @@ export const Cart = () => {
                               </thead>
                               <tbody>
                                  {cartItems && cartItems.map(item => (
-                                    <tr class="shop-cart-item" key={item.nombre}>
-                                       <td class="fag-cart-preview">
+                                    <tr className="shop-cart-item" key={item.nombre}>
+                                       <td className="fag-cart-preview">
                                           <Link to={`/game/${item.product}`}>
                                              <img src={item.imagen} alt={item.nombre} />
                                           </Link>
                                        </td>
-                                       <td class="fag-cart-product">
+                                       <td className="fag-cart-product">
                                           <Link to={`/game/${item.product}`}>
                                              <p>{item.nombre}</p>
                                           </Link>
                                        </td>
-                                       <td class="fag-cart-price">
+                                       <td className="fag-cart-price">
                                           <p>${item.precio}</p>
                                        </td>
-                                       <td class="fag-cart-quantity">
-                                          <div class="quantity">
+                                       <td className="fag-cart-quantity">
+                                          <div className="quantity">
                                              
                                              <div className="num-block skin-2">
                                                 <div className="num-in">
                                                    <span className="minus" onClick={() => decreaseQty(item.product, item.quantity)}></span>
                                                    <input
                                                       type="number"
-                                                      className="count"
+                                                      classNameName="count"
                                                       value={item.quantity}
                                                       readOnly
                                                       style={{ padding: 0 }}
                                                    />
-                                                   <span className="plus" onClick={() => increaseQty(item.product, item.quantity, item.inventario)}></span>
+                                                   <span classNameName="plus" onClick={() => increaseQty(item.product, item.quantity, item.inventario)}></span>
                                                 </div>
                                              </div>
                                           </div>
                                        </td>
-                                       <td class="fag-cart-total">
+                                       <td className="fag-cart-total">
                                           <p>${(item.precio) * (item.quantity)}</p>
                                        </td>
-                                       <td class="fag-cart-close">
-                                          <Link><i class="fa-solid fa-xmark" onClick={() => removeCartItemHandler(item.product)} style={{color: 'white'}}></i></Link>
+                                       <td className="fag-cart-close">
+                                          <Link><i className="fa-solid fa-xmark" onClick={() => removeCartItemHandler(item.product)} style={{color: 'white'}}></i></Link>
                                        </td>
                                     </tr>
                                  ))}
                               </tbody>
                            </table>
                         </div>
-                        <div class="cart-clear">
+                        <div className="cart-clear">
                            <Link to="#">Limpiar Carrito</Link>
                            <Link to="#">Actualizar</Link>
                         </div>
                      </div>
                   </div>
-                  <div class="col-lg-4">
-                     <div class="order-summury-box">
+                  <div className="col-lg-4">
+                     <div className="order-summury-box">
                         <h3>Resumen del Pedido</h3>
-                        <div class="summury-inn">
+                        <div className="summury-inn">
                            <table>
                               <tbody>
                                  <tr>
@@ -149,7 +149,7 @@ export const Cart = () => {
                            </table>
                         </div>
                      </div>
-                     <div class="checkout-action">
+                     <div className="checkout-action">
                         <button to="#" className="fag-btn" onClick={checkOutHandler}>Proceder con el Pago :) </button>
                      </div>
                   </div>
